@@ -1,7 +1,16 @@
+import { useState } from 'react'
+import MapView from './components/MapView'
+
 function App() {
+  const [startPoint, setStartPoint] = useState(null)
+
   return (
     <div id="app">
-      <h1>rundrop</h1>
+      <MapView
+        startPoint={startPoint}
+        onStartPointSet={setStartPoint}
+        routeCoordinates={null}
+      />
     </div>
   )
 }
