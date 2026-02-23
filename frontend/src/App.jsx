@@ -1,15 +1,32 @@
-import { useState } from 'react'
+import useRouteGenerator from './hooks/useRouteGenerator'
 import MapView from './components/MapView'
+import Sidebar from './components/Sidebar'
 
 function App() {
-  const [startPoint, setStartPoint] = useState(null)
+  const {
+    startPoint, setStartPoint,
+    distance, setDistance,
+    routeData, loading, error,
+    generateRoute, downloadGPX, regenerate,
+  } = useRouteGenerator()
 
   return (
-    <div id="app">
+    <div id="app" className="app-layout">
       <MapView
         startPoint={startPoint}
         onStartPointSet={setStartPoint}
-        routeCoordinates={null}
+        routeCoordinates={routeData?.coordinates ?? null}
+      />
+      <Sidebar
+        startPoint={startPoint}
+        distance={distance}
+        setDistance={setDistance}
+        routeData={routeData}
+        loading={loading}
+        error={error}
+        generateRoute={generateRoute}
+        downloadGPX={downloadGPX}
+        regenerate={regenerate}
       />
     </div>
   )
