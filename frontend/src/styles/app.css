@@ -1,0 +1,48 @@
+:root {
+  --color-accent: #e8772e;
+  --color-accent-light: rgba(232, 119, 46, 0.3);
+}
+
+.map-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.pulsing-marker {
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  position: relative;
+}
+
+.pulsing-marker::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  animation: pulse 1.5s ease-out infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.location-button {
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.location-button:hover {
+  background: #f4f4f4;
+}
